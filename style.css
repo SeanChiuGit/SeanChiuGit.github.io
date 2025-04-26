@@ -1,0 +1,172 @@
+body {
+    background: linear-gradient(to bottom right, #fff3e0, #ffe0e9);
+  }
+
+/* 左侧导航栏 */
+.sidebar {
+    position: fixed;
+    top: 20%;
+    left: 2%;
+    width: 160px;
+    background: rgba(255, 255, 255, 0.4);
+    padding: 1.5rem 1rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(6px);
+  }
+
+
+.sidebar a {
+    display: block;
+    margin: 0.6rem 0;
+    text-align: center;
+    padding: 0.4rem;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    color: #5c4a4a !important;           /* ✅ 强制颜色 */
+    text-decoration: none !important;   /* ✅ 移除下划线 */
+    transition: all 0.2s ease-in-out;
+  }
+
+  .sidebar a:visited,
+  .sidebar a:active,
+  .sidebar a:focus {
+    color: #5c4a4a !important;
+  }
+  
+  
+
+  
+
+.sidebar h2 {
+    text-align: center;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.8rem;
+    color: #d94f4f;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+}
+
+  
+  
+  
+
+
+.sidebar a:hover {
+    background: #ffe3e3;
+    color: #ff4b4b;
+    font-weight: 600;
+  }
+
+/* 顶部标题区域（自然融入背景） */
+header {
+    background: none;
+    text-align: center;
+    padding: 3rem 1rem 1.5rem;
+  }
+  
+header h1 {
+    margin: 0;
+    font-size: 2.8rem;
+    color: #ff5e62;
+    letter-spacing: 1px;
+    font-weight: bold;
+  }
+  
+header p {
+    color: #555;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+  }
+  
+
+/* 主体内容容器 */
+.container {
+    max-width: 720px;  /* 缩小最大宽度形成更精致的竖条视觉 */
+    margin: 0 auto;     /* ✅ 水平居中 */
+    padding: 2rem 1.5rem;
+  }
+
+/* 卡片设计 */
+.project {
+    position: relative;
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+    padding: 2rem;
+    margin-bottom: 2.5rem;
+  }
+  
+
+.project:hover {
+  transform: translateY(-3px);
+}
+
+.project h2 {
+  margin-top: 0;
+  font-size: 1.5rem;
+  color: #222;
+}
+
+.tags {
+  font-size: 0.85rem;
+  color: #777;
+  margin-bottom: 0.5rem;
+}
+
+.link a {
+  text-decoration: none;
+  color: #007acc;
+}
+
+/* 游戏截图布局 + 标签 */
+.screenshots {
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.screenshots .screenshot-box {
+  text-align: center;
+}
+
+.screenshots img {
+    max-width: 260px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .screenshots img:hover {
+    transform: scale(1.6);  /* ✅ 微妙放大，不突兀 */
+    z-index: 999;
+    position: relative;
+}
+  
+/* 图片上下排列用于 Dino Dash */
+.screenshots.vertical-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 1.2rem;
+  }
+  
+  .screenshots.vertical-layout img {
+    max-width: 480px;           /* ✅ 比原本大一点 */
+    transition: transform 0.25s ease-in-out;
+  }
+  
+
+
+.screenshots .caption {
+  font-size: 0.8rem;
+  margin-top: 0.3rem;
+  color: #555;
+}

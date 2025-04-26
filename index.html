@@ -4,102 +4,56 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sean Chiu | Game Portfolio</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f6f8fa;
-      color: #333;
-    }
-    header {
-      background: linear-gradient(to right, #ff9966, #ff5e62);
-      color: white;
-      text-align: center;
-      padding: 2rem 1rem;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-    }
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 2rem;
-    }
-    .project {
-      background: white;
-      padding: 1.5rem;
-      border-radius: 10px;
-      margin-bottom: 2rem;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-    }
-    .project h2 {
-      margin-top: 0;
-    }
-    .tags {
-      font-size: 0.85rem;
-      color: #777;
-      margin-bottom: 0.5rem;
-    }
-    .screenshots {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      margin-top: 1rem;
-    }
-    .screenshots img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 6px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-    .link a {
-      text-decoration: none;
-      color: #007acc;
-    }
-    .screenshots img.narrow {
-      max-width: 500px;
-      width: 100%;
-      margin: 0 auto;
-      display: block;
-      height: auto;
-      border-radius: 6px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-    }
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 
-
-
-
-
-  </style>
 </head>
 <body>
-  <header>
+  <div class="sidebar">
+    <h2>Sean Chiu</h2>
+    <a href="#top">Top</a>
+    <a href="#wavelength">Wavelength</a>
+    <a href="#tcube">TCube</a>
+    <a href="#dino">Dino Dash</a>
+    <a href="#about">About Me</a>
+  </div>
+
+  <header id="top">
     <h1>Sean Chiu | Game Portfolio</h1>
     <p>Interactive projects built with JavaScript, Firebase, Pygame, and more.</p>
   </header>
+
   <div class="container">
-    <div class="project">
+    <div class="project" id="wavelength">
       <h2>Wavelength</h2>
       <div class="tags">JavaScript, Firebase, Canvas</div>
       <p>A multiplayer guessing game using a semicircle slider and semantic interpretation, with real-time sync and animations.</p>
       <div class="screenshots">
-        <img class="narrow" src="wave1.png" alt="Wavelength gameplay 1">
-        <img class="narrow" src="wave2.png" alt="Wavelength gameplay 2">
-
+        <div class="shot">
+          <img src="wave1.png" alt="Wavelength gameplay 1">
+          <div class="caption">Clue-setting Phase</div>
+        </div>
+        <div class="shot">
+          <img src="wave2.png" alt="Wavelength gameplay 2">
+          <div class="caption">Guessing Phase</div>
+        </div>
       </div>
       <div class="link"><a href="https://wavelength-game.netlify.app/" target="_blank">Play Wavelength</a></div>
     </div>
 
-    <div class="project">
+    <div class="project" id="tcube">
       <h2>TCube</h2>
       <div class="tags">JavaScript, Firebase Realtime Database</div>
       <p>A twist on Tic Tac Toe with disappearing moves, AI opponent, and room-based multiplayer gameplay.</p>
       <div class="screenshots">
-        <img class="narrow" src="tcube1.png" alt="TCube gameplay 1">
-        <img class="narrow" src="tcube2.png" alt="TCube gameplay 2">
-
+        <div class="shot">
+          <img src="tcube1.png" alt="TCube gameplay 1">
+          <div class="caption">Multiplayer Victory</div>
+        </div>
+        <div class="shot">
+          <img src="tcube2.png" alt="TCube gameplay 2">
+          <div class="caption">AI Battle</div>
+        </div>
       </div>
       <div class="link"><a href="https://tcube-game.netlify.app/" target="_blank">Play TCube</a></div>
     </div>
@@ -107,13 +61,23 @@
     <div class="project">
       <h2>Dino Dash</h2>
       <div class="tags">Python, Pygame</div>
-      <p>A boss-fight platformer with stamina, health, bullet-hell attacks, and dynamic scenes. Game jam entry developed in 2 weeks.</p>
-      <div class="screenshots">
-        <img src="dino1.png" alt="Dino Dash gameplay 1">
-        <img src="dino2.png" alt="Dino Dash gameplay 2">
+      <p>
+        A boss-fight platformer with stamina, health, bullet-hell attacks, and dynamic scenes. Game jam entry developed in 2 weeks.
+      </p>
+      <div class="screenshots vertical-layout">
+        <div class="screenshot-box">
+          <img src="dino1.png" alt="Dino Dash gameplay 1">
+          <div class="caption">Forest Level</div>
+        </div>
+        <div class="screenshot-box">
+          <img src="dino2.png" alt="Dino Dash gameplay 2">
+          <div class="caption">Factory Boss</div>
+        </div>
       </div>
-      <div class="link"><a href="https://seanchiuitch.itch.io/dino" target="_blank">Play on Itch.io</a></div>
+      <div class="link">
+        <a href="https://seanchiuitch.itch.io/dino" target="_blank">Play on Itch.io</a>
+      </div>
     </div>
-  </div>
+    
 </body>
 </html>
