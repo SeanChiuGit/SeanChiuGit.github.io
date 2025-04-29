@@ -170,3 +170,58 @@ header p {
   margin-top: 0.3rem;
   color: #555;
 }
+
+
+.about-me-section {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.profile-image {
+  width: 160px;
+  height: auto;
+  border-radius: 50%;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+.profile-info p {
+  margin: 6px 0;
+  font-size: 1rem;
+  color: #555;
+}
+
+
+.header-section {
+  text-align: center;
+  padding: 4rem 1rem 2rem;
+}
+
+.profile-top {
+  margin-top: 2rem;
+}
+
+.profile-image {
+  width: 160px;
+  height: auto;
+  border-radius: 50%;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+}
+
+.signature-line {
+  margin-top: 1rem;
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: #444;
+  font-style: italic;
+}
+
+.profile-info {
+  margin-top: 1.8rem;
+}
+
+.profile-info p {
+  margin: 6px 0;
+  font-size: 1rem;
+  color: #555;
+}
