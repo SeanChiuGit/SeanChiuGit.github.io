@@ -80,10 +80,15 @@ header p {
   box-shadow: 0 0.6vw 1.6vw rgba(0, 0, 0, 0.04);
   padding: 1.5vw;
   margin-bottom: 3vw;
+
+  /* ✅ 添加平滑动画 + 优化性能 */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  will-change: transform;
 }
 
 .project:hover {
   transform: translateY(-0.3vw);
+  box-shadow: 0 1vw 2vw rgba(0, 0, 0, 0.08); /* 可选：hover 时提升阴影 */
 }
 
 .project h2 {
