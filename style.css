@@ -295,5 +295,15 @@ header p {
 }
 
 .play-button.gochess-btn {
-  background: linear-gradient(to right, #444, #111);
+  background: linear-gradient(to right,
+        /* 保持黑直到棋子左边 */
+    #fff 0%,      /* 棋子处瞬间变白 */
+    #000 55%,      /* 再渐变回黑 */
+    #000 100%      /* 其余保持黑色 */
+  );
+}
+
+
+html {
+  scroll-behavior: smooth;
 }
