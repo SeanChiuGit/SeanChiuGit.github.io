@@ -310,7 +310,9 @@ header p {
     #000 100%      /* 其余保持黑色 */
   );
 }
-
+.play-button.darkchess-btn:hover {
+  background: linear-gradient(to right, #1e2b39, white);
+}
 
 html {
   scroll-behavior: smooth;
