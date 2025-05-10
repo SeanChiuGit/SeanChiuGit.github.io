@@ -276,6 +276,11 @@ header p {
   background: #555; /* 深灰 */
 }
 
+.darkchess-title::after {
+  background: #1e2b39; /* 深蓝 */
+}
+
+
 .play-button {
   display: inline-block;
   margin-top: 1.2vw;
