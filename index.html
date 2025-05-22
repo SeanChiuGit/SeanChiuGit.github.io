@@ -11,6 +11,25 @@
 
 </head>
 <body>
+  
+  <button onclick="playMusic()" class="music-button">🎵 Play Music</button>
+
+  <audio id="bgm" loop>
+    <source src="bgm1.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    function playMusic() {
+      const audio = document.getElementById("bgm");
+      audio.play();
+    }
+  </script>
+
+  
+  
+  
+  
   <div class="sidebar">
     <h2>Sean Chiu</h2>
     <a href="#top">Top</a>
