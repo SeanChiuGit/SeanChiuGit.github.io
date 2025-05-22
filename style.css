@@ -323,13 +323,13 @@ html {
   scroll-behavior: smooth;
 }
 
-.tiffany-link {
+tiffany-link {
   color: #0ABAB5 !important;
   text-decoration: none !important;
   font-weight: bold;
 }
 
-.tiffany-link:hover {
+tiffany-link:hover {
   color: #088F8F !important;
 }
 
