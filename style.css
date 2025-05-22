@@ -323,3 +323,12 @@ html {
   scroll-behavior: smooth;
 }
 
+.tiffany-link {
+  color: #0ABAB5;         /* Tiffany 蓝 */
+  text-decoration: none;  /* 去除下划线 */
+  font-weight: bold;      /* 可选：让名字更醒目 */
+}
+
+.tiffany-link:hover {
+  color: #088F8F;         /* 悬停时稍微深一点 */
+}
