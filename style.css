@@ -369,3 +369,65 @@ html {
   cursor: pointer;
   z-index: 999;
 }
+
+
+
+.search-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  margin: 40px auto 60px auto;
+  padding: 10px 20px;
+  border-radius: 12px;
+  background-color: #ffffffee;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: fit-content;
+}
+
+.search-box input[type="text"] {
+  padding: 8px 12px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 300px;
+}
+
+.search-box button {
+  padding: 8px 12px;
+  font-size: 16px;
+  border: none;
+  background-color: #ffc107;
+  color: #000;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.search-box button:hover {
+  background-color: #ffb300;
+}
+
+
+.chat-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.chat-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.2s ease;
+}
+
+.chat-button:hover {
+  background-color: #45a049;
+}
