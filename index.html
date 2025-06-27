@@ -58,15 +58,31 @@
 
   
   <script>
-    function switchPage(pageId) {
-      const pages = document.querySelectorAll('.page-section');
-      pages.forEach(page => page.style.display = 'none');
+  function switchPage(pageId) {
+    const pages = document.querySelectorAll('.page-section');
 
-      document.getElementById(pageId).style.display = 'block';
+    pages.forEach(page => {
+      page.style.display = 'none';
 
-      // 可选：回到顶部
-      window.scrollTo(0, 0);
+      const iframes = page.querySelectorAll('iframe');
+      iframes.forEach(iframe => {
+        iframe.src = ''; // 清空之前的 src
+      });
+    });
+
+    const targetPage = document.getElementById(pageId);
+    if (targetPage) {
+      targetPage.style.display = 'block';
+
+      const iframes = targetPage.querySelectorAll('iframe');
+      iframes.forEach(iframe => {
+        const src = iframe.getAttribute('data-src');
+        if (src) iframe.src = src;
+      });
     }
+
+    window.scrollTo(0, 0);
+  }
   </script>
 
 
