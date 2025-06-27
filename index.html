@@ -43,168 +43,202 @@
   
   <div class="sidebar">
     <h2>Sean Chiu</h2>
+    <a href="#" onclick="switchPage('homePage')">🏠 Home</a>
     <a href="#top">Top</a>
+    <a href="#" onclick="switchPage('gamePage')">🎮 Games</a>
     <a href="#wavelength">Wavelength</a>
     <a href="#tcube">TCube</a>
     <a href="#dino">Dino Dash</a>
     <a href="#gochess">Go Chess</a>
     <a href="#darkchess">Blind Chess</a>
     <a href="#basket">Basket Hoop</a>
+    <a href="#" onclick="switchPage('dataPage')">📊 Data</a>
   </div>
 
-  <header id="top" class="header-section">
-    <h1>Game Portfolio</h1>
-  
-    <div class="profile-top">
-      <img src="myimage.png" alt="Sean Chiu Avatar" class="profile-image">
-  
-      <div class="signature-line">
-         Crafting playful worlds, one pixel at a time.
-      </div>
-  
-      <div class="profile-info">
-        <p>📍 Indie Developer | Based in California</p>
-        
-        
-        <p>🎵 Currently exploring rhythm games, strategy games</p>
-        
-      </div>
-    </div>
-  
-  </header>
-  
-  
-  <form class="search-box" action="https://www.google.com/search" method="GET" target="_blank">
-    <input type="text" name="q" placeholder="Search Google...">
-    <button type="submit">🔍</button>
-  </form>
 
-  <div class="chat-button-container">
-    <a href="https://chat.openai.com" target="_blank" class="chat-button">💬 ChatGPT</a>
+  
+  <script>
+    function switchPage(pageId) {
+      const pages = document.querySelectorAll('.page-section');
+      pages.forEach(page => page.style.display = 'none');
+
+      document.getElementById(pageId).style.display = 'block';
+
+      // 可选：回到顶部
+      window.scrollTo(0, 0);
+    }
+  </script>
+
+
+
+
+
+
+
+  <div id="homePage" class="page-section">
+  
+    <header id="top" class="header-section">
+      <h1>Game Portfolio</h1>
+    
+      <div class="profile-top">
+        <img src="myimage.png" alt="Sean Chiu Avatar" class="profile-image">
+    
+        <div class="signature-line">
+          Crafting playful worlds, one pixel at a time.
+        </div>
+    
+        <div class="profile-info">
+          <p>📍 Indie Developer | Based in California</p>
+          
+          
+          <p>🎵 Currently exploring rhythm games, strategy games</p>
+          
+        </div>
+      </div>
+    
+    </header>
+    
+    
+    <form class="search-box" action="https://www.google.com/search" method="GET" target="_blank">
+      <input type="text" name="q" placeholder="Search Google...">
+      <button type="submit">🔍</button>
+    </form>
+
+    <div class="chat-button-container">
+      <a href="https://chat.openai.com" target="_blank" class="chat-button">💬 ChatGPT</a>
+    </div>
   </div>
 
-  <div class="container">
-    <div class="project" id="wavelength">
-      <h2 class="game-title">Wavelength</h2>
-      
-      <div class="tags">JavaScript, Firebase, Canvas</div>
-      <p>
-        A multiplayer guessing game inspired by the party classic. 
-        Take turns giving clues and guessing positions on a hidden spectrum — 
-        built with real-time sync, smooth animations, and a clean semicircle interface.
-      </p>      <div class="screenshots">
-        <div class="shot">
-          <img src="wave1.png" alt="Wavelength gameplay 1">
-        </div>
-        <div class="shot">
-          <img src="wave2.png" alt="Wavelength gameplay 2">
-        </div>
-      </div>
-      <a href="https://wavelength-game.netlify.app/" target="_blank" class="play-button">🎮 Play Wavelength</a>
-    </div>
 
-    <div class="project" id="tcube">
-      <h2 class="game-title tcube-title">TCube</h2>
-      <div class="tags">JavaScript, Firebase Realtime Database</div>
-      <p>
-        A strategic twist on Tic Tac Toe where each new move pushes the oldest off the board. 
-        Supports single-player AI and real-time multiplayer with room-based matchmaking.
-      </p>
-      <div class="screenshots">
-        <div class="shot">
-          <img src="tcube1.png" alt="TCube gameplay 1">
-        </div>
-        <div class="shot">
-          <img src="tcube2.png" alt="TCube gameplay 2">
-        </div>
-      </div>
-      <a href="https://tcube-game.netlify.app/" target="_blank" class="play-button tcube-btn">🧠 Play TCube</a>
-    </div>
-    
 
-    <div class="project" id="dino">
-      <h2 class="game-title dino-title">Dino Dash</h2>
-      <div class="tags">Python, Pygame</div>
-      <p>
-        A boss-fight platformer with bullet-hell mechanics, stamina management, and dynamic scenes. 
-        Created during a two-week game jam with original art and sound design.
-      </p>
-      <div class="screenshots vertical-layout">
-        <div class="screenshot-box">
-          <img src="dino1.png" alt="Dino Dash gameplay 1">
-        </div>
-        <div class="screenshot-box">
-          <img src="dino2.png" alt="Dino Dash gameplay 2">
-        </div>
-      </div>
-      <a href="https://seanchiuitch.itch.io/dino" target="_blank" class="play-button dino-btn">🦖 Play Dino Dash</a>
-    </div>
-    
-    
-    <div class="project" id="gochess">
-      <h2 class="game-title gochess-title">Go Chess Online</h2>
-      <div class="tags">JavaScript, Firebase, Multiplayer</div>
-      <p>
-        A simplified online Go game with room matchmaking, real-time turns, dead stone marking, 
-        and final scoring — play against friends in a streamlined web-based experience.
-      </p>
-      <div class="screenshots">
-        <div class="shot">
-          <img src="gochess1.png" alt="Go Chess gameplay">
-        </div>
-      </div>
-      <a href="https://gochessonline.netlify.app/" target="_blank" class="play-button gochess-btn">⚫ Play Go Chess</a>
-    </div>
-    
-    <div class="project" id="darkchess">
-      <h2 class="game-title darkchess-title">Blind Chess</h2>
-      <div class="tags">JavaScript, Firebase, UI Design</div>
+  <div id="gamePage" class="page-section" style="display: none;">
+
+    <div class="container">
+      <div class="project" id="wavelength">
+        <h2 class="game-title">Wavelength</h2>
+        
+        <div class="tags">JavaScript, Firebase, Canvas</div>
         <p>
-          Designed by 
-          <span class="hover-image-wrapper">
-            <a href="https://swedenfish.github.io/profile/" target="_blank" class="tiffany-link">
-              Swedenfish🐟
-            </a>
-            <img src="sweden.png" alt="Swedenfish" class="hover-image">
-          </span>, 
-          this hidden-information chess variant challenges players to outwit their opponent without full visibility...
+          A multiplayer guessing game inspired by the party classic. 
+          Take turns giving clues and guessing positions on a hidden spectrum — 
+          built with real-time sync, smooth animations, and a clean semicircle interface.
+        </p>      <div class="screenshots">
+          <div class="shot">
+            <img src="wave1.png" alt="Wavelength gameplay 1">
+          </div>
+          <div class="shot">
+            <img src="wave2.png" alt="Wavelength gameplay 2">
+          </div>
+        </div>
+        <a href="https://wavelength-game.netlify.app/" target="_blank" class="play-button">🎮 Play Wavelength</a>
+      </div>
+
+      <div class="project" id="tcube">
+        <h2 class="game-title tcube-title">TCube</h2>
+        <div class="tags">JavaScript, Firebase Realtime Database</div>
+        <p>
+          A strategic twist on Tic Tac Toe where each new move pushes the oldest off the board. 
+          Supports single-player AI and real-time multiplayer with room-based matchmaking.
         </p>
-
-
-      <div class="screenshots">
-        <div class="shot">
-          <img src="darkchess1.png" alt="Dark Chess gameplay">
+        <div class="screenshots">
+          <div class="shot">
+            <img src="tcube1.png" alt="TCube gameplay 1">
+          </div>
+          <div class="shot">
+            <img src="tcube2.png" alt="TCube gameplay 2">
+          </div>
         </div>
+        <a href="https://tcube-game.netlify.app/" target="_blank" class="play-button tcube-btn">🧠 Play TCube</a>
       </div>
-      <a href="https://chesscarnival.netlify.app/" target="_blank" class="play-button darkchess-btn">♟ Play Blind Chess</a>
-    </div>
+      
 
-
-
-    <div class="project" id="basket">
-      <h2 class="game-title basket-title">Basket Hoop</h2>
-      <div class="tags">HTML, JavaScript, CSS</div>
-      <p>
-        A creative entry for the <strong>GMTK Game Jam 2023</strong> (theme: “Roles Reversed”), co-developed by Swedenfish and me.  
-        In 2025, we spontaneously challenged ourselves to build a game around the 2023 theme within 48 hours— not as part of the original jam, but as a fun personal project.
-        <br><br>
-        Instead of controlling the player shooting the ball, you are the <strong>hoop</strong> itself! Position yourself to catch as many basketballs as possible.
-        <br><br>
-        This is just the beginning — we’ll keep refining the game and adding new content step by step!
-      </p>
-      <div class="screenshots">
-        <div class="shot">
-          <img src="basket1.png" alt="basket gameplay 1">
+      <div class="project" id="dino">
+        <h2 class="game-title dino-title">Dino Dash</h2>
+        <div class="tags">Python, Pygame</div>
+        <p>
+          A boss-fight platformer with bullet-hell mechanics, stamina management, and dynamic scenes. 
+          Created during a two-week game jam with original art and sound design.
+        </p>
+        <div class="screenshots vertical-layout">
+          <div class="screenshot-box">
+            <img src="dino1.png" alt="Dino Dash gameplay 1">
+          </div>
+          <div class="screenshot-box">
+            <img src="dino2.png" alt="Dino Dash gameplay 2">
+          </div>
         </div>
-        <div class="shot">
-          <img src="basket2.png" alt="basket gameplay 2">
-        </div>
+        <a href="https://seanchiuitch.itch.io/dino" target="_blank" class="play-button dino-btn">🦖 Play Dino Dash</a>
       </div>
-      <a href="https://basketballhoop.netlify.app/" target="_blank" class="play-button basket-btn">🏀 Play Basket Hoop</a>
-    </div>
+      
+      
+      <div class="project" id="gochess">
+        <h2 class="game-title gochess-title">Go Chess Online</h2>
+        <div class="tags">JavaScript, Firebase, Multiplayer</div>
+        <p>
+          A simplified online Go game with room matchmaking, real-time turns, dead stone marking, 
+          and final scoring — play against friends in a streamlined web-based experience.
+        </p>
+        <div class="screenshots">
+          <div class="shot">
+            <img src="gochess1.png" alt="Go Chess gameplay">
+          </div>
+        </div>
+        <a href="https://gochessonline.netlify.app/" target="_blank" class="play-button gochess-btn">⚫ Play Go Chess</a>
+      </div>
+      
+      <div class="project" id="darkchess">
+        <h2 class="game-title darkchess-title">Blind Chess</h2>
+        <div class="tags">JavaScript, Firebase, UI Design</div>
+          <p>
+            Designed by 
+            <span class="hover-image-wrapper">
+              <a href="https://swedenfish.github.io/profile/" target="_blank" class="tiffany-link">
+                Swedenfish🐟
+              </a>
+              <img src="sweden.png" alt="Swedenfish" class="hover-image">
+            </span>, 
+            this hidden-information chess variant challenges players to outwit their opponent without full visibility...
+          </p>
+
+
+        <div class="screenshots">
+          <div class="shot">
+            <img src="darkchess1.png" alt="Dark Chess gameplay">
+          </div>
+        </div>
+        <a href="https://chesscarnival.netlify.app/" target="_blank" class="play-button darkchess-btn">♟ Play Blind Chess</a>
+      </div>
 
 
 
-    
+      <div class="project" id="basket">
+        <h2 class="game-title basket-title">Basket Hoop</h2>
+        <div class="tags">HTML, JavaScript, CSS</div>
+        <p>
+          A creative entry for the <strong>GMTK Game Jam 2023</strong> (theme: “Roles Reversed”), co-developed by Swedenfish and me.  
+          In 2025, we spontaneously challenged ourselves to build a game around the 2023 theme within 48 hours— not as part of the original jam, but as a fun personal project.
+          <br><br>
+          Instead of controlling the player shooting the ball, you are the <strong>hoop</strong> itself! Position yourself to catch as many basketballs as possible.
+          <br><br>
+          This is just the beginning — we’ll keep refining the game and adding new content step by step!
+        </p>
+        <div class="screenshots">
+          <div class="shot">
+            <img src="basket1.png" alt="basket gameplay 1">
+          </div>
+          <div class="shot">
+            <img src="basket2.png" alt="basket gameplay 2">
+          </div>
+        </div>
+        <a href="https://basketballhoop.netlify.app/" target="_blank" class="play-button basket-btn">🏀 Play Basket Hoop</a>
+      </div>
+
+  </div>
+  
+  <div id="dataPage" class="page-section" style="display: none;">
+    <iframe src="map1.html" width="100%" height="600px" style="border:none;"></iframe>
+    <iframe src="map2.html" width="100%" height="600px" style="border:none;"></iframe>
+    <iframe src="map3.html" width="100%" height="600px" style="border:none;"></iframe>
+  </div>
 </body>
 </html>
