@@ -516,7 +516,7 @@ html {
   font-family: 'Pacifico', cursive;
   font-size: 53px;
   color: transparent;
-  background: linear-gradient(270deg, #c084fc, #a855f7, #d8b4fe);
+  background: linear-gradient(270deg, #ff5e78, #ff69b4, #d946ef);
   background-size: 600% 600%;
   -webkit-background-clip: text;
   animation: glowmove 8s ease infinite;
@@ -527,6 +527,8 @@ html {
   text-decoration: none;
   margin-top: 20px;
   transition: transform 0.3s;
+  filter: drop-shadow(0 0 5px #ffc1cc);
+  text-shadow: 2px 2px 0px #fff0f4, 4px 4px 0px #ffb3c1;
 }
 
 .fancy-button:hover {
@@ -537,7 +539,7 @@ html {
   width: 60px;
   height: 60px;
   display: inline-block;
-  background: linear-gradient(270deg, #c084fc, #a855f7, #d8b4fe);
+  background: linear-gradient(270deg, #ff5e78, #ff69b4, #d946ef);
   background-size: 600% 600%;
   animation: glowmove 8s ease infinite;
   mask-image: var(--icon-url);
