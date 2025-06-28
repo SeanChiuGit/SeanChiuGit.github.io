@@ -516,7 +516,7 @@ html {
   font-family: 'Pacifico', cursive;
   font-size: 53px;
   color: transparent;
-  background: linear-gradient(270deg, #ff5e78, #ff69b4, #d946ef);
+  background: linear-gradient(270deg, #ff6b81, #ff94a3, #ffc2d1);
   background-size: 600% 600%;
   -webkit-background-clip: text;
   animation: glowmove 8s ease infinite;
@@ -539,7 +539,7 @@ html {
   width: 60px;
   height: 60px;
   display: inline-block;
-  background: linear-gradient(270deg, #ff5e78, #ff69b4, #d946ef);
+  background: linear-gradient(270deg, #ff6b81, #ff94a3, #ffc2d1);
   background-size: 600% 600%;
   animation: glowmove 8s ease infinite;
   mask-image: var(--icon-url);
