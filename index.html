@@ -57,17 +57,28 @@
 
 
   
-  <script>
+ <script>
     function switchPage(pageId) {
+      // 隐藏所有页面
       const pages = document.querySelectorAll('.page-section');
       pages.forEach(page => page.style.display = 'none');
 
+      // 显示目标页面
       document.getElementById(pageId).style.display = 'block';
 
+      // 控制 sidebar 显示
+      const sidebar = document.querySelector('.sidebar');
+      if (pageId === 'homePage') {
+        sidebar.style.display = 'none';
+      } else {
+        sidebar.style.display = 'block';
+      }
+
       // 可选：回到顶部
-      window.scrollTo(0, 0); 
+      window.scrollTo(0, 0);
     }
   </script>
+
 
 
 

@@ -4,6 +4,7 @@ body {
 
 /* 左侧导航栏 */
 .sidebar {
+  display: none; 
   position: fixed;
   top: 20%;
   left: 2%;
