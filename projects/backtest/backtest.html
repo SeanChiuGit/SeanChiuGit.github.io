@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Backtest Result Viewer</title>
+  <title>Stock Price Chart</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
   <style>
@@ -16,151 +16,75 @@
     h1 {
       color: #1a237e;
     }
-    #results {
-      margin-top: 1rem;
-      font-weight: bold;
-    }
-    canvas {
+    #chart-container {
       margin-top: 2rem;
-      max-width: 100%;
-    }
-    select {
-      margin-top: 1rem;
-      padding: 0.5rem;
-      font-size: 1rem;
+      width: 100%;
+      max-width: 900px;
     }
   </style>
 </head>
 <body>
-  <h1>📈 Backtest Result Viewer</h1>
-  <p>This chart shows the simulated portfolio value using historical data from <code>HistoricalQuotes.csv</code>.</p>
-  <label for="strategy">Select Strategy:</label>
-  <select id="strategy">
-    <option value="buyhold">Buy & Hold</option>
-    <option value="ma">5/20 MA Crossover</option>
-  </select>
-  <div id="results">Loading CSV...</div>
-  <canvas id="chart"></canvas>
+  <h1>📈 AAPL Historical Price Chart</h1>
+  <div id="status">⏳ Loading data...</div>
+  <div id="chart-container">
+    <canvas id="priceChart"></canvas>
+  </div>
 
   <script>
-    let chartInstance = null;
     let parsed = [];
 
     fetch("HistoricalQuotes.csv")
-      .then(response => response.text())
-      .then(csvText => {
-        Papa.parse(csvText, {
+      .then(res => res.text())
+      .then(text => {
+        Papa.parse(text, {
           header: true,
           skipEmptyLines: true,
-          complete: function (results) {
-            const cleaned = results.data.map(row => {
+          complete: (results) => {
+            const cleanedData = results.data.map(row => {
               const cleanedRow = {};
-              for (let key in row) {
-                cleanedRow[key.trim()] = row[key]?.trim();
+              for (const key in row) {
+                cleanedRow[key.trim()] = row[key];
               }
               return cleanedRow;
             });
 
-            parsed = cleaned.map(row => {
-              let rawClose = row['Close'] || row['Close/Last'] || row['Adj Close'];
-              if (typeof rawClose === 'string') {
-                rawClose = rawClose.replace('$', '').replace(',', '').trim();
-              }
+            parsed = cleanedData.map(row => {
+              let rawClose = row["Close"] || row["Close/Last"] || row["Adj Close"];
+              if (!rawClose || !row.Date) return null;
+              rawClose = rawClose.replace("$", "").replace(/,/g, "").trim();
               const close = parseFloat(rawClose);
-              return {
-                date: row.Date,
-                close: isNaN(close) ? null : close
-              };
-            }).filter(row => row.date && row.close !== null).reverse();
+              return { date: row.Date.trim(), close: isNaN(close) ? null : close };
+            }).filter(r => r && r.close !== null).reverse();
 
-            if (parsed.length === 0) {
-              document.getElementById('results').textContent = '❌ CSV parsed but no valid rows found. Check column names and format.';
-              return;
-            }
+            document.getElementById("status").textContent = "✅ Data loaded.";
 
-            runStrategy();
+            const ctx = document.getElementById('priceChart').getContext('2d');
+            const chart = new Chart(ctx, {
+              type: 'line',
+              data: {
+                labels: parsed.map(d => d.date),
+                datasets: [{
+                  label: 'Close Price',
+                  data: parsed.map(d => d.close),
+                  fill: false,
+                  borderColor: 'blue',
+                  tension: 0.1
+                }]
+              },
+              options: {
+                scales: {
+                  x: {
+                    ticks: {
+                      autoSkip: true,
+                      maxTicksLimit: 15
+                    }
+                  }
+                }
+              }
+            });
           }
         });
-      })
-      .catch(error => {
-        document.getElementById('results').textContent = '❌ Failed to load or parse CSV.';
-        console.error('CSV fetch error:', error);
       });
-
-    document.getElementById('strategy').addEventListener('change', runStrategy);
-
-    function runStrategy() {
-      const strategy = document.getElementById('strategy').value;
-      let portfolio = [];
-
-      if (strategy === 'ma') {
-        portfolio = movingAverageStrategy(parsed, 5, 20);
-      } else {
-        const initialCapital = 10000;
-        const price0 = parsed[0].close;
-        const position = initialCapital / price0;
-        portfolio = parsed.map(d => ({ date: d.date, value: position * d.close }));
-      }
-
-      const labels = portfolio.map(p => p.date);
-      const values = portfolio.map(p => p.value);
-
-      document.getElementById('results').textContent = `✅ Final Portfolio Value (${strategy === 'ma' ? '5/20 MA' : 'Buy & Hold'}): $${values[values.length - 1].toFixed(2)}`;
-
-      if (chartInstance) chartInstance.destroy();
-
-      chartInstance = new Chart(document.getElementById('chart'), {
-        type: 'line',
-        data: {
-          labels: labels,
-          datasets: [{
-            label: 'Portfolio Value',
-            data: values,
-            borderColor: strategy === 'ma' ? '#2e7d32' : '#6a1b9a',
-            borderWidth: 2,
-            fill: false,
-            tension: 0.1
-          }]
-        },
-        options: {
-          responsive: true,
-          plugins: { legend: { display: false } }
-        }
-      });
-    }
-
-    function movingAverageStrategy(data, shortWindow, longWindow) {
-      let capital = 10000;
-      let position = 0;
-      let portfolio = [];
-
-      for (let i = 0; i < data.length; i++) {
-        const price = data[i].close;
-        const shortMA = average(data, i, shortWindow);
-        const longMA = average(data, i, longWindow);
-
-        if (shortMA && longMA) {
-          if (shortMA > longMA && capital > 0) {
-            position = capital / price;
-            capital = 0;
-          } else if (shortMA < longMA && position > 0) {
-            capital = position * price;
-            position = 0;
-          }
-        }
-
-        const total = capital + position * price;
-        portfolio.push({ date: data[i].date, value: total });
-      }
-      return portfolio;
-    }
-
-    function average(data, idx, window) {
-      if (idx < window - 1) return null;
-      const slice = data.slice(idx - window + 1, idx + 1);
-      const sum = slice.reduce((acc, d) => acc + d.close, 0);
-      return sum / window;
-    }
   </script>
 </body>
 </html>
