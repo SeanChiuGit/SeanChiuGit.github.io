@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Backtest Strategy Comparison</title>
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 2rem;
+    }
+    #results {
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+    #status {
+      margin-top: 0.5rem;
+      color: green;
+    }
+    canvas {
+      margin-top: 2rem;
+      max-width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <h1>📈 Strategy Investment Simulator</h1>
+  <p>Allocate $10,000 each year across 10 rounds. Choose how much to invest and compare to Buy & Hold strategy.</p>
+  <input type="number" id="investment" placeholder="Amount to invest this round ($)" />
+  <button id="runBtn" onclick="nextRound()" disabled>Invest & Continue</button>
+  <div id="status">⏳ Loading data...</div>
+  <div id="results"></div>
+  <canvas id="comparisonChart" width="800" height="400"></canvas>
+
+  <script>
+    let parsed = [];
+    let playerAmounts = [10000];
+    let defaultAmounts = [10000];
+    let round = 0;
+    const interestRate = 0.02;
+    const totalRounds = 10;
+    let chart;
+
+    function nextRound() {
+      const invest = parseFloat(document.getElementById("investment").value);
+      const currentCash = playerAmounts[round];
+      if (isNaN(invest) || invest < 0 || invest > currentCash) {
+        alert("Enter a valid investment <= available cash ($" + currentCash.toFixed(2) + ")");
+        return;
+      }
+
+      const startIdx = round * 251;
+      if (startIdx + 251 > parsed.length) {
+        alert("Not enough data for next year.");
+        return;
+      }
+
+      const buyPrice = parsed[startIdx].close;
+      const sellPrice = parsed[startIdx + 251].close;
+      const shares = invest / buyPrice;
+      const profit = shares * sellPrice;
+      const banked = (currentCash - invest) * (1 + interestRate);
+      const total = profit + banked;
+
+      playerAmounts.push(total);
+
+      const defaultStart = parsed[0].close;
+      const defaultEnd = parsed[(round + 1) * 251].close;
+      const defaultVal = 10000 * (defaultEnd / defaultStart);
+      defaultAmounts.push(defaultVal);
+
+      round++;
+
+      document.getElementById("results").textContent =
+        `📅 Round ${round} done. Player: $${total.toFixed(2)} vs. Default: $${defaultVal.toFixed(2)}`;
+
+      document.getElementById("investment").value = "";
+
+      updateChart();
+
+      if (round >= totalRounds) {
+        document.getElementById("runBtn").disabled = true;
+        document.getElementById("results").textContent += " ✅ Simulation complete!";
+      }
+    }
+
+    function updateChart() {
+      const labels = Array.from({length: round + 1}, (_, i) => `Year ${i}`);
+      if (!chart) {
+        const ctx = document.getElementById("comparisonChart").getContext("2d");
+        chart = new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels,
+            datasets: [
+              {
+                label: 'Player Strategy',
+                data: playerAmounts,
+                fill: false,
+                borderColor: 'blue',
+                tension: 0.1
+              },
+              {
+                label: 'Buy & Hold',
+                data: defaultAmounts,
+                fill: false,
+                borderColor: 'gray',
+                borderDash: [5, 5],
+                tension: 0.1
+              }
+            ]
+          }
+        });
+      } else {
+        chart.data.labels = labels;
+        chart.data.datasets[0].data = playerAmounts;
+        chart.data.datasets[1].data = defaultAmounts;
+        chart.update();
+      }
+    }
+
+    fetch("HistoricalQuotes.csv")
+      .then(res => res.text())
+      .then(csv => {
+        Papa.parse(csv, {
+          header: true,
+          skipEmptyLines: true,
+          complete: (results) => {
+            const cleanedData = results.data.map(row => {
+              const cleanedRow = {};
+              for (const key in row) {
+                cleanedRow[key.trim()] = row[key];
+              }
+              return cleanedRow;
+            });
+
+            parsed = cleanedData
+              .map(row => {
+                const closeStr = row["Close"] || row["Close/Last"];
+                if (!closeStr || !row.Date) return null;
+                const close = parseFloat(closeStr.replace("$", "").replace(/,/g, "").trim());
+                return isNaN(close) ? null : { date: row.Date.trim(), close };
+              })
+              .filter(r => r !== null)
+              .reverse();
+
+            document.getElementById("status").textContent = "✅ Data loaded!";
+            document.getElementById("runBtn").disabled = false;
+            updateChart();
+          }
+        });
+      });
+  </script>
+</body>
+</html>
