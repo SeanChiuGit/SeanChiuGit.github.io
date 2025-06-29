@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Strategy Backtest Simulator</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 2rem;
+      background: #f9f9fb;
+      color: #333;
+    }
+    h1 {
+      color: #4a148c;
+    }
+    label, select, button {
+      margin-top: 0.5rem;
+      display: block;
+    }
+    canvas {
+      max-width: 100%;
+    }
+    #results {
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>📈 Strategy Backtest Simulator</h1>
+
+  <label for="strategy">Choose Strategy:</label>
+  <select id="strategy">
+    <option value="ma">5/20 Moving Average Crossover</option>
+    <option value="buyhold">Buy & Hold</option>
+    <option value="random">Random Buy/Sell</option>
+  </select>
+
+  <button onclick="runBacktest()">Run Backtest</button>
+
+  <div id="results"></div>
+  <canvas id="chart"></canvas>
+
+  <script>
+    let globalPriceData = null;
+
+    window.onload = function () {
+      fetch("HistoricalQuotes.csv")
+        .then(response => response.text())
+        .then(csvText => {
+          Papa.parse(csvText, {
+            header: true,
+            skipEmptyLines: true,
+            complete: function (results) {
+              const parsed = results.data.map(row => {
+                const rawClose = row['Close'] || row['Close/Last'];
+                const close = typeof rawClose === 'string' ? parseFloat(rawClose.replace('$', '')) : parseFloat(rawClose);
+                return {
+                  date: row.Date,
+                  close: close
+                };
+              }).reverse();
+              globalPriceData = parsed;
+            }
+          });
+        });
+    };
+
+    function runBacktest() {
+      if (!globalPriceData) {
+        alert("CSV data not loaded yet.");
+        return;
+      }
+
+      const strategy = document.getElementById('strategy').value;
+      const data = globalPriceData;
+      let portfolio = [];
+
+      if (strategy === 'ma') {
+        portfolio = movingAverageStrategy(data, 5, 20);
+      } else if (strategy === 'buyhold') {
+        portfolio = buyAndHold(data);
+      } else {
+        portfolio = randomStrategy(data);
+      }
+
+      displayResults(portfolio);
+    }
+
+    function movingAverageStrategy(data, shortWindow, longWindow) {
+      let capital = 10000, position = 0;
+      let portfolio = [];
+
+      for (let i = 0; i < data.length; i++) {
+        const shortMA = average(data, i, shortWindow);
+        const longMA = average(data, i, longWindow);
+        const price = data[i].close;
+
+        if (shortMA && longMA) {
+          if (shortMA > longMA && capital > 0) {
+            position = capital / price;
+            capital = 0;
+          } else if (shortMA < longMA && position > 0) {
+            capital = position * price;
+            position = 0;
+          }
+        }
+
+        const total = capital + position * price;
+        portfolio.push({ date: data[i].date, value: total });
+      }
+      return portfolio;
+    }
+
+    function buyAndHold(data) {
+      let capital = 10000;
+      const price0 = data[0].close;
+      const position = capital / price0;
+      return data.map(d => ({ date: d.date, value: position * d.close }));
+    }
+
+    function randomStrategy(data) {
+      let capital = 10000, position = 0;
+      const portfolio = [];
+      for (let i = 0; i < data.length; i++) {
+        const price = data[i].close;
+        if (Math.random() < 0.01 && capital > 0) {
+          position = capital / price;
+          capital = 0;
+        } else if (Math.random() < 0.01 && position > 0) {
+          capital = position * price;
+          position = 0;
+        }
+        portfolio.push({ date: data[i].date, value: capital + position * price });
+      }
+      return portfolio;
+    }
+
+    function average(data, idx, window) {
+      if (idx < window - 1) return null;
+      const slice = data.slice(idx - window + 1, idx + 1);
+      const sum = slice.reduce((acc, d) => acc + d.close, 0);
+      return sum / window;
+    }
+
+    function displayResults(portfolio) {
+      const labels = portfolio.map(p => p.date);
+      const values = portfolio.map(p => p.value);
+
+      document.getElementById('results').innerHTML =
+        `Final Portfolio Value: $${values[values.length - 1].toFixed(2)}`;
+
+      new Chart(document.getElementById('chart'), {
+        type: 'line',
+        data: {
+          labels,
+          datasets: [{
+            label: 'Portfolio Value',
+            data: values,
+            borderWidth: 2,
+            fill: false,
+            borderColor: '#8e24aa'
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: { legend: { display: false } }
+        }
+      });
+    }
+  </script>
+</body>
+</html>
