@@ -198,13 +198,14 @@ header p {
 
 .profile-info {
   margin-top: -2vw;
+  
 }
 
 .profile-info p {
   font-family: 'Sans-serif', sans-serif;
   margin: 0.8vw 0;
   font-size: calc(0.7rem + 0.3vw);
-  color: #555;
+  color: #ff5e62;
 }
 
 
