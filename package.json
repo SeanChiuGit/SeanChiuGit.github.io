@@ -54,9 +54,9 @@
       "vite": "6.3.5"
     },
     "scripts": {
-      "dev": "vite",
-      "build": "vite build",
-      "predeploy": "npm run build",
-      "deploy": "gh-pages -d dist"
+        "dev": "vite",
+        "build": "vite build",
+        "predeploy": "npm run build && echo > dist/.nojekyll",
+        "deploy": "gh-pages -d dist"
     }
   }
