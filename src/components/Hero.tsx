@@ -6,25 +6,25 @@ export function Hero() {
     {
       icon: Github,
       label: 'GitHub',
-      href: '#',
+      href: 'https://github.com/SeanChiuGit',
       color: 'hover:text-slate-900'
     },
     {
       icon: Instagram,
       label: 'Instagram', 
-      href: '#',
+      href: 'https://www.instagram.com/seanchiu.dev/',
       color: 'hover:text-pink-600'
     },
     {
       icon: MessageCircle,
       label: '小红书',
-      href: '#',
+      href: 'https://www.xiaohongshu.com/user/profile/5f2a950900000000010098cc',
       color: 'hover:text-red-500'
     },
     {
       icon: Bot,
       label: 'ChatGPT',
-      href: '#',
+      href: 'https://chatgpt.com/g/g-p-68b0c8446f2481918cd44e1b1cb16df3-shen-mi-kong-jian/project',
       color: 'hover:text-green-600'
     }
   ];
