@@ -59,6 +59,6 @@
         "dev": "vite",
         "build": "vite build",
         "predeploy": "npm run build && echo > dist/.nojekyll",
-        "deploy": "npm run build && cp -r dist/* . && git add . && git commit -m 'auto deploy' && git push origin main"
+        "deploy": "rm -rf dist && vite build && cp -r dist/* . && git add . && git commit -m \"auto deploy\" && git push origin main"
     }
 }
