@@ -8,22 +8,37 @@ import { Footer } from './components/Footer';
 //wavelength
 import wavelength1 from './assets/wave1.png';
 import wavelength2 from './assets/wave2.png';
+import wavetag from './assets/wavetag.png';
+import waveicon from './assets/waveicon.png';
+
+
 
 //tcube
 import tcubeIcon from './assets/tcubeicon.png';
 import tcubeplay1 from './assets/tcube1.png';
 import tcubeplay2 from './assets/tcube2.png';
 import tcubetag from './assets/tcubetag.png';
+import tcubetag2 from './assets/tcubetag2.png';
+
+
 
 //dinodash
 import dino1 from './assets/dino1.png';
 import dino2 from './assets/dino2.png';
+import dinotag from './assets/dinotag.png';
+import dinoicon from './assets/dinoicon.png';
+
 
 //gochess
-import gochessImg from './assets/gochess1.png';``
+import gochess1 from './assets/gochess1.png';``
+import gochessicon from './assets/gochess1.png';``
+import gochesstag from './assets/gochesstag.png';``
+
 
 //blindchess
-import blindchessImg from './assets/darkchess1.png';
+import blindchess1 from './assets/darkchess1.png';
+import blindchessicon2 from './assets/darkchess1.png';
+
 
 //basket_hoop
 import basket1 from './assets/basket1.png';
@@ -37,9 +52,8 @@ const gamesData = [
     title: 'Wavelength',
     description: 'A creative party game where players give clues to help their team guess concepts on a spectrum. Features real-time multiplayer and intuitive canvas-based interface.',
     tags: ['JavaScript', 'Firebase', 'Canvas', 'Multiplayer'],
-    iconImage: 'https://images.unsplash.com/photo-1728311369878-0d4259da74ac?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGdhbWUlMjBpbnRlcmZhY2V8ZW58MXx8fHwxNzU4NzQ4MDMzfDA&ixlib=rb-4.1.0&q=80&w=1080',
-    screenshots: [
-      'https://images.unsplash.com/photo-1728311369878-0d4259da74ac?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGdhbWUlMjBpbnRlcmZhY2V8ZW58MXx8fHwxNzU4NzQ4MDMzfDA&ixlib=rb-4.1.0&q=80&w=1080',
+    iconImage: waveicon,
+    screenshots: [wavetag,
       wavelength1, wavelength2],
       playUrl: 'https://wavelength-game.netlify.app/'
   },
@@ -56,8 +70,8 @@ const gamesData = [
     title: 'Dino Dash',
     description: 'An endless runner game featuring pixel art graphics and dynamic obstacle generation. Built with smooth animations and progressive difficulty.',
     tags: ['Python', 'Pygame', 'Pixel Art', 'Animation'],
-    iconImage: 'https://images.unsplash.com/photo-1750019486291-691e4e097f94?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyYWNpbmclMjBnYW1lJTIwcGl4ZWx8ZW58MXx8fHwxNzU4NzQ4MDM0fDA&ixlib=rb-4.1.0&q=80&w=1080',
-    screenshots: [dino1,dino2
+    iconImage: dinoicon,
+    screenshots: [dinotag, dino1,dino2
     ],
     playUrl: 'https://seanchiuitch.itch.io/dinodash'
   },
@@ -65,8 +79,8 @@ const gamesData = [
     title: 'Go Chess Online',
     description: 'Online multiplayer implementation of the ancient game of Go. Features real-time gameplay, spectator mode, and game history tracking.',
     tags: ['JavaScript', 'Firebase', 'Multiplayer', 'Strategy'],
-    iconImage: 'https://images.unsplash.com/photo-1702728342833-21a85f6a71b1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGVzcyUyMGdhbWUlMjBib2FyZHxlbnwxfHx8fDE3NTg3NDgwMzR8MA&ixlib=rb-4.1.0&q=80&w=1080',
-    screenshots: [gochessImg
+    iconImage: gochessicon,
+    screenshots: [gochesstag,gochess1
     ],
     playUrl: 'https://gochessonline.netlify.app/'
   },
@@ -74,10 +88,10 @@ const gamesData = [
     title: 'Blind Chess',
     description: 'An innovative chess variant designed for accessibility. Features audio cues, tactile feedback simulation, and an intuitive interface design.',
     tags: ['JavaScript', 'Firebase', 'UI Design', 'Accessibility'],
-    iconImage: 'https://images.unsplash.com/photo-1702728342833-21a85f6a71b1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGVzcyUyMGdhbWUlMjBib2FyZHxlbnwxfHx8fDE3NTg3NDgwMzR8MA&ixlib=rb-4.1.0&q=80&w=1080',
+    iconImage: blindchessicon2,
     screenshots: [
       'https://images.unsplash.com/photo-1702728342833-21a85f6a71b1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGVzcyUyMGdhbWUlMjBib2FyZHxlbnwxfHx8fDE3NTg3NDgwMzR8MA&ixlib=rb-4.1.0&q=80&w=1080',
-        blindchessImg    ],
+        blindchess1    ],
     playUrl: 'https://chesscarnival.netlify.app/'
   },
   {
