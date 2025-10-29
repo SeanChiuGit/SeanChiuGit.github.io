@@ -20,7 +20,7 @@ import dino1 from './assets/dino1.png';
 import dino2 from './assets/dino2.png';
 
 //gochess
-import gochessImg from './assets/gochess1.png';
+import gochessImg from './assets/gochess1.png';``
 
 //blindchess
 import blindchessImg from './assets/darkchess1.png';
