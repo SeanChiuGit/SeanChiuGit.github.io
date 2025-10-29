@@ -5,6 +5,33 @@ import { GameCard } from './components/GameCard';
 import { ProjectCard } from './components/ProjectCard';
 import { Footer } from './components/Footer';
 
+//wavelength
+import wavelength1 from './assets/wave1.png';
+import wavelength2 from './assets/wave2.png';
+
+//tcube
+import tcubeIcon from './assets/tcubeicon.png';
+import tcubeplay1 from './assets/tcube1.png';
+import tcubeplay2 from './assets/tcube2.png';
+import tcubetag from './assets/tcubetag.png';
+
+//dinodash
+import dino1 from './assets/dino1.png';
+import dino2 from './assets/dino2.png';
+
+//gochess
+import gochessImg from './assets/gochess1.png';
+
+//blindchess
+import blindchessImg from './assets/darkchess1.png';
+
+//basket_hoop
+import basket1 from './assets/basket1.png';
+import basket2 from './assets/basket2.png';
+
+
+
+
 const gamesData = [
   {
     title: 'Wavelength',
@@ -13,38 +40,35 @@ const gamesData = [
     iconImage: 'https://images.unsplash.com/photo-1728311369878-0d4259da74ac?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGdhbWUlMjBpbnRlcmZhY2V8ZW58MXx8fHwxNzU4NzQ4MDMzfDA&ixlib=rb-4.1.0&q=80&w=1080',
     screenshots: [
       'https://images.unsplash.com/photo-1728311369878-0d4259da74ac?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGdhbWUlMjBpbnRlcmZhY2V8ZW58MXx8fHwxNzU4NzQ4MDMzfDA&ixlib=rb-4.1.0&q=80&w=1080',
-      'https://images.unsplash.com/photo-1635829771690-f2323d3bfea7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwdXp6bGUlMjBnYW1lJTIwc2NyZWVuc2hvdHxlbnwxfHx8fDE3NTg3NDgwMzN8MA&ixlib=rb-4.1.0&q=80&w=1080'
-    ]
+      wavelength1, wavelength2],
+      playUrl: 'https://wavelength-game.netlify.app/'
   },
   {
     title: 'TCube',
     description: 'A 3D puzzle game combining Tetris mechanics with cube rotation. Features real-time synchronization and competitive multiplayer modes.',
     tags: ['JavaScript', 'Firebase', 'Realtime Database', '3D'],
-    iconImage: 'https://images.unsplash.com/photo-1635829771690-f2323d3bfea7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwdXp6bGUlMjBnYW1lJTIwc2NyZWVuc2hvdHxlbnwxfHx8fDE3NTg3NDgwMzN8MA&ixlib=rb-4.1.0&q=80&w=1080',
-    screenshots: [
-      'https://images.unsplash.com/photo-1635829771690-f2323d3bfea7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwdXp6bGUlMjBnYW1lJTIwc2NyZWVuc2hvdHxlbnwxfHx8fDE3NTg3NDgwMzN8MA&ixlib=rb-4.1.0&q=80&w=1080',
-      'https://images.unsplash.com/photo-1728311369878-0d4259da74ac?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGdhbWUlMjBpbnRlcmZhY2V8ZW58MXx8fHwxNzU4NzQ4MDMzfDA&ixlib=rb-4.1.0&q=80&w=1080'
-    ]
+    iconImage: tcubeIcon,
+    screenshots: [tcubetag, tcubeplay1, tcubeplay2
+    ],
+    playUrl: 'https://tcube-game.netlify.app/'
   },
   {
     title: 'Dino Dash',
     description: 'An endless runner game featuring pixel art graphics and dynamic obstacle generation. Built with smooth animations and progressive difficulty.',
     tags: ['Python', 'Pygame', 'Pixel Art', 'Animation'],
     iconImage: 'https://images.unsplash.com/photo-1750019486291-691e4e097f94?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyYWNpbmclMjBnYW1lJTIwcGl4ZWx8ZW58MXx8fHwxNzU4NzQ4MDM0fDA&ixlib=rb-4.1.0&q=80&w=1080',
-    screenshots: [
-      'https://images.unsplash.com/photo-1750019486291-691e4e097f94?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyYWNpbmclMjBnYW1lJTIwcGl4ZWx8ZW58MXx8fHwxNzU4NzQ4MDM0fDA&ixlib=rb-4.1.0&q=80&w=1080',
-      'https://images.unsplash.com/photo-1728311369878-0d4259da74ac?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGdhbWUlMjBpbnRlcmZhY2V8ZW58MXx8fHwxNzU4NzQ4MDMzfDA&ixlib=rb-4.1.0&q=80&w=1080'
-    ]
+    screenshots: [dino1,dino2
+    ],
+    playUrl: 'https://seanchiuitch.itch.io/dinodash'
   },
   {
     title: 'Go Chess Online',
     description: 'Online multiplayer implementation of the ancient game of Go. Features real-time gameplay, spectator mode, and game history tracking.',
     tags: ['JavaScript', 'Firebase', 'Multiplayer', 'Strategy'],
     iconImage: 'https://images.unsplash.com/photo-1702728342833-21a85f6a71b1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGVzcyUyMGdhbWUlMjBib2FyZHxlbnwxfHx8fDE3NTg3NDgwMzR8MA&ixlib=rb-4.1.0&q=80&w=1080',
-    screenshots: [
-      'https://images.unsplash.com/photo-1702728342833-21a85f6a71b1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGVzcyUyMGdhbWUlMjBib2FyZHxlbnwxfHx8fDE3NTg3NDgwMzR8MA&ixlib=rb-4.1.0&q=80&w=1080',
-      'https://images.unsplash.com/photo-1635829771690-f2323d3bfea7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwdXp6bGUlMjBnYW1lJTIwc2NyZWVuc2hvdHxlbnwxfHx8fDE3NTg3NDgwMzN8MA&ixlib=rb-4.1.0&q=80&w=1080'
-    ]
+    screenshots: [gochessImg
+    ],
+    playUrl: 'https://gochessonline.netlify.app/'
   },
   {
     title: 'Blind Chess',
@@ -53,8 +77,8 @@ const gamesData = [
     iconImage: 'https://images.unsplash.com/photo-1702728342833-21a85f6a71b1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGVzcyUyMGdhbWUlMjBib2FyZHxlbnwxfHx8fDE3NTg3NDgwMzR8MA&ixlib=rb-4.1.0&q=80&w=1080',
     screenshots: [
       'https://images.unsplash.com/photo-1702728342833-21a85f6a71b1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGVzcyUyMGdhbWUlMjBib2FyZHxlbnwxfHx8fDE3NTg3NDgwMzR8MA&ixlib=rb-4.1.0&q=80&w=1080',
-      'https://images.unsplash.com/photo-1728311369878-0d4259da74ac?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGdhbWUlMjBpbnRlcmZhY2V8ZW58MXx8fHwxNzU4NzQ4MDMzfDA&ixlib=rb-4.1.0&q=80&w=1080'
-    ]
+        blindchessImg    ],
+    playUrl: 'https://chesscarnival.netlify.app/'
   },
   {
     title: 'Basket Hoop',
@@ -63,8 +87,8 @@ const gamesData = [
     iconImage: 'https://images.unsplash.com/photo-1743105351315-540bce258f1d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHxiYXNrZXRiYWxsJTIwZ2FtZSUyMG1vYmlsZXxlbnwxfHx8fDE3NTg3NDgwMzV8MA&ixlib=rb-4.1.0&q=80&w=1080',
     screenshots: [
       'https://images.unsplash.com/photo-1743105351315-540bce258f1d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHxiYXNrZXRiYWxsJTIwZ2FtZSUyMG1vYmlsZXxlbnwxfHx8fDE3NTg3NDgwMzV8MA&ixlib=rb-4.1.0&q=80&w=1080',
-      'https://images.unsplash.com/photo-1750019486291-691e4e097f94?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHxyYWNpbmclMjBnYW1lJTIwcGl4ZWx8ZW58MXx8fHwxNzU4NzQ4MDM0fDA&ixlib=rb-4.1.0&q=80&w=1080'
-    ]
+        basket1,basket2    ],
+    playUrl: 'https://basketballhoop.netlify.app/'
   }
 ];
 

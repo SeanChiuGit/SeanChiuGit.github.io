@@ -75,13 +75,18 @@ export function GameCard({ title, description, tags, iconImage, screenshots, pla
           )}
 
           {/* Play Button */}
-          <Button 
-            className="w-full bg-slate-900 hover:bg-slate-800 text-white font-medium transition-colors"
-            size="sm"
-          >
-            <Play size={16} className="mr-2" />
-            Play Game
-          </Button>
+          {playUrl && (
+            <a href={playUrl} target="_blank" rel="noopener noreferrer">
+              <Button 
+                className="w-full bg-slate-900 hover:bg-slate-800 text-white font-medium transition-colors"
+                size="sm"
+              >
+                <Play size={16} className="mr-2" />
+                Play Game
+              </Button>
+            </a>
+          )}
+
         </div>
       </CardContent>
     </Card>
