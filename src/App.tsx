@@ -31,13 +31,13 @@ import dinoicon from './assets/dinoicon.png';
 
 //gochess
 import gochess1 from './assets/gochess1.png';``
-import gochessicon from './assets/gochess1.png';``
+import gochessicon from './assets/gochessicon.png';``
 import gochesstag from './assets/gochesstag.png';``
 
 
 //blindchess
 import blindchess1 from './assets/darkchess1.png';
-import blindchessicon2 from './assets/darkchess1.png';
+import blindchessicon2 from './assets/darkchessicon2.png';
 
 
 //basket_hoop
@@ -60,7 +60,7 @@ const gamesData = [
   {
     title: 'TCube',
     description: 'A 3D puzzle game combining Tetris mechanics with cube rotation. Features real-time synchronization and competitive multiplayer modes.',
-    tags: ['JavaScript', 'Firebase', 'Realtime Database', '3D'],
+    tags: ['JavaScript', 'Firebase', 'Realtime Database', '3D','AI Opponent'],
     iconImage: tcubeIcon,
     screenshots: [tcubetag, tcubeplay1, tcubeplay2
     ],
@@ -100,7 +100,6 @@ const gamesData = [
     tags: ['HTML', 'JavaScript', 'CSS', 'Physics'],
     iconImage: 'https://images.unsplash.com/photo-1743105351315-540bce258f1d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHxiYXNrZXRiYWxsJTIwZ2FtZSUyMG1vYmlsZXxlbnwxfHx8fDE3NTg3NDgwMzV8MA&ixlib=rb-4.1.0&q=80&w=1080',
     screenshots: [
-      'https://images.unsplash.com/photo-1743105351315-540bce258f1d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHxiYXNrZXRiYWxsJTIwZ2FtZSUyMG1vYmlsZXxlbnwxfHx8fDE3NTg3NDgwMzV8MA&ixlib=rb-4.1.0&q=80&w=1080',
         basket1,basket2    ],
     playUrl: 'https://basketballhoop.netlify.app/'
   }
