@@ -37,7 +37,7 @@ import gochesstag from './assets/gochesstag.png';``
 
 //blindchess
 import blindchess1 from './assets/darkchess1.png';
-import blindchessicon2 from './assets/darkchessicon2.png';
+import blindchessicon2 from './assets/blindchessicon2.png';
 
 
 //basket_hoop
