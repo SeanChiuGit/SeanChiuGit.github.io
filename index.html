@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sean Chiu Portfolio</title>
+    <script type="module" crossorigin src="./assets/index-BXgpPqUe.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-CeRGQLCe.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <!-- ⚡ correct Vite entry -->
+  </body>
+</html>
+
+
+<!--
+powershell
+
+Remove-Item -Recurse -Force dist, assets, index.html
+npm run build
+Copy-Item -Path .\dist\* -Destination .\ -Recurse -Force
+git add -A
+git commit -m "deploy: update site"
+git push origin main
+-->
+
+<!--
+gitbash
+
+rm -rf dist assets index.html
+npm run build
+cp -rf dist/* .
+git add -A
+git commit -m "deploy: update site"
+git push origin main
+-->
