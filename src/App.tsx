@@ -62,7 +62,7 @@ const gamesData = [
     description: 'A 3D puzzle game combining Tetris mechanics with cube rotation. Features real-time synchronization and competitive multiplayer modes.',
     tags: ['JavaScript', 'Firebase', 'Realtime Database', '3D','AI Opponent'],
     iconImage: tcubeIcon,
-    screenshots: [tcubetag2, tcubeplay1, tcubeplay2
+    screenshots: [tcubetag, tcubeplay1, tcubeplay2
     ],
     playUrl: 'https://tcube-game.netlify.app/'
   },
@@ -182,7 +182,7 @@ export default function App() {
             <div className="text-center mb-16">
               <h2 className="text-4xl font-black text-slate-900 mb-4">Data Projects(Currently under update)</h2>
               <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-                Analytical projects combining mathematics, economics, and data science
+                Analytical projects combining math, economics, and data science
               </p>
             </div>
 

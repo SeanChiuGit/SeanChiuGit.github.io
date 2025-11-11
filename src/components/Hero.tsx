@@ -49,7 +49,7 @@ export function Hero() {
             Sean Chiu
           </h1>
           <p className="text-xl md:text-2xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
-            Math–Computer Science Major @ UC San Diego | Aspiring Software Engineer
+            Math–CS @ UC San Diego | Aspiring Software Engineer
           </p>
         </div>
 
