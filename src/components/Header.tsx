@@ -27,7 +27,7 @@ export function Header({ activeSection, onNavigate }: HeaderProps) {
         <div className="flex items-center justify-between">
           <div 
             onClick={() => handleNavClick('hero')}
-            className="text-lg font-bold text-slate-900 cursor-pointer hover:text-slate-700 transition-colors"
+            className="text-lg font-bold text-slate-900 cursor-pointer hover:text-slate-700 transition-colors select-none"
           >
             Sean Chiu
           </div>
