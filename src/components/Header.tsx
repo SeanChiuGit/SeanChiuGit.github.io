@@ -12,7 +12,7 @@ export function Header({ activeSection, onNavigate }: HeaderProps) {
   const navItems = [
     { id: 'hero', label: 'Home' },
     { id: 'games', label: 'Games' },
-    { id: 'data', label: 'Data' },
+    { id: 'software', label: 'Software' },
     { id: 'contact', label: 'Contact' },
   ];
 
